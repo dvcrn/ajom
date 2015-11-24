@@ -31,5 +31,5 @@
 (set! *main-cli-fn* noop)
 
 ;; We need to set module.exports to our core class.
-;; Atom is using Proton.activate on this
+;; Atom is using {{raw-name}}.activate on this
 (aset js/module "exports" proton.core)
