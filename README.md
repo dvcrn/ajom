@@ -4,6 +4,8 @@ A leiningen template for atom plugins in clojurescript
 
 ## Usage
 
+[![Clojars Project](http://clojars.org/ajom/lein-template/latest-version.svg)](http://clojars.org/ajom/lein-template)
+
 ```
 lein new ajom <<project-name>>
 ```
