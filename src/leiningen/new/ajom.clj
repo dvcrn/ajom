@@ -10,7 +10,7 @@
   (let [data {:raw-name name
               :name name
               :sanitized (name-to-path name)}]
-    (main/info "Generating fresh 'lein new' ajom project.")
+    (main/info "Generating new ajom project.")
     (->files data
              ["README.md" (render "README.md" data)]
              [".gitignore" (render ".gitignore")]
