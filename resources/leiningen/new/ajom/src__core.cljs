@@ -1,4 +1,4 @@
-(ns proton.core
+(ns {{raw-name}}.core
   (:require [cljs.nodejs :as node]))
 
 ;; reference to atom shell API
