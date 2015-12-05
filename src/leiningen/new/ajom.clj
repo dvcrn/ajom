@@ -5,7 +5,7 @@
 (def render (renderer "ajom"))
 
 (defn ajom
-  "FIXME: write documentation"
+  "Generate new ajom project"
   [name]
   (let [data {:raw-name name
               :name name
@@ -19,4 +19,5 @@
              ["plugin/menus/{{raw-name}}.cson" (render "plugin__menus__menu.cson" data)]
              ["plugin/package.json" (render "plugin__package.json" data)]
              ["plugin/styles/{{raw-name}}.less" (render "plugin__styles__style.less" data)]
-             ["src/{{sanitized}}/core.cljs" (render "src__core.cljs" data)])))
+             ["src/cljs/{{sanitized}}/core.cljs" (render "src__cljs__core.cljs" data)]
+             ["src/dev/build.clj" (render "src__dev__build.clj" data)])))

@@ -7,12 +7,39 @@ A leiningen template for atom plugins in clojurescript
 [![Clojars Project](http://clojars.org/ajom/lein-template/latest-version.svg)](http://clojars.org/ajom/lein-template)
 
 ```
-lein new ajom <<project-name>>
+lein new ajom {{project-name}}
 ```
 
-Once done, build with `lein cljsbuild`. `plugin/` is the folder that goes into atom. 
+## Compiling and running
 
-Inside `plugin/`, use `apm link` to load the plugin manually into your editor. 
+To compile me with a self-reloading loop, use:
+
+```
+lein run -m build/dev
+```
+
+To compile for release, use
+```
+lein run -m build/release
+```
+
+After you have done that, go into the `plugin/` folder and run
+```
+apm link
+```
+
+Your plugin should now be installed inside atom.
+
+
+## Development
+
+If you want to export a function to atom for use with atom commands, make sure to add them to `dev/build.clj` like so:
+```
+:foo 'your-thing.core/foo
+:bar 'your-thing.core/bar
+```
+
+
 
 ## License
 

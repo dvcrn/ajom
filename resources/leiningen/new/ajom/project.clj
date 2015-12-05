@@ -8,37 +8,6 @@
                  [org.clojure/clojurescript "1.7.170"]
                  [org.clojure/core.async "0.2.374"]]
 
-  :source-paths ["src"]
-
-  :plugins [[lein-cljsbuild "1.1.1"]]
-
+  :source-paths ["src/cljs"]
   :profiles {:dev {:source-paths ["src/dev"]
-                   :dependencies [[thheller/shadow-devtools "0.1.31"]
-                                  [thheller/shadow-build "1.0.161"]]}}
-
-  :clean-targets ^{:protect false} ["plugin/lib"]
-
-  :cljsbuild {:builds
-              [{:id "dev"
-                :source-paths ["src"]
-
-                :figwheel {:on-jsload "{{raw-name}}.core/on-js-reload"}
-
-                :compiler {:main {{raw-name}}.core
-                           :target :nodejs
-                           :optimizations :simple
-                           :asset-path "out"
-                           :output-to "plugin/lib/{{raw-name}}.js"
-                           :output-dir "plugin/lib/out"
-                           :source-map-timestamp true}}
-
-               ;; This next build is an compressed minified build for
-               ;; production. You can build this with:
-               ;; lein cljsbuild once min
-               {:id "min"
-                :source-paths ["src"]
-                :compiler {:output-to "plugin/lib/{{raw-name}}.js"
-                           :target :nodejs
-                           :main {{raw-name}}.core
-                           :optimizations :advanced
-                           :pretty-print false}}]})
+                   :dependencies [[thheller/shadow-build "1.0.186"]]}})
