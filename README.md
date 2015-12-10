@@ -1,6 +1,6 @@
 # ajom
 
-A leiningen template for atom plugins in clojurescript
+A leiningen template for atom plugins in clojurescript with code live-reload
 
 ## Usage
 
@@ -15,7 +15,7 @@ lein new ajom {{project-name}}
 To compile me with a self-reloading loop, use:
 
 ```
-lein run -m build/dev
+lein run -m build/dev-repl
 ```
 
 To compile for release, use
@@ -38,8 +38,6 @@ If you want to export a function to atom for use with atom commands, make sure t
 :foo 'your-thing.core/foo
 :bar 'your-thing.core/bar
 ```
-
-
 
 ## License
 

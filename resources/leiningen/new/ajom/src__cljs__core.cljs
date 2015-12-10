@@ -10,15 +10,21 @@
 ;; get atom.CompositeDisposable so we can work with it
 (def composite-disposable (.-CompositeDisposable ashell))
 
+;; Atom for holding all disposables objects
+(def disposables (atom []))
+
 ;; Initialise new composite-disposable so we can add stuff to it later
-(def subscriptions
-    (new composite-disposable))
+(def subscriptions (new composite-disposable))
+(swap! disposables conj subscriptions)
 
 (defn toggle []
     (.log js/console "{{raw-name}} got toggled!"))
 
+;; Dispose all disposables
 (defn deactivate []
-    (.log js/console "Deactivating {{raw-name}}..."))
+    (.log js/console "Deactivating {{raw-name}}...")
+    (doseq [disposable @disposables]
+      (.dispose disposable)))
 
 (defn serialize []
   nil)
@@ -27,3 +33,15 @@
   (.log js/console "Hello World from {{raw-name}}")
   (.add subscriptions
         (.add commands "atom-workspace" "{{raw-name}}:toggle" toggle)))
+
+;; live-reload
+;; calls stop before hotswapping code
+;; then start after all code is loaded
+;; the return value of stop will be the argument to start
+(defn stop []
+  (let [state (serialize)]
+    (deactivate)
+    state))
+
+(defn start [state]
+  (activate state))

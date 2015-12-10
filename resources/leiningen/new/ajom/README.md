@@ -15,6 +15,11 @@ If you want to export a function to atom for use with atom commands, make sure t
 To compile me with a self-reloading loop, use:
 
 ```
+lein run -m build/dev-repl
+```
+
+To compile me with a self-compiling loop but without live-reload:
+```
 lein run -m build/dev
 ```
 
