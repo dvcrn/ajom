@@ -1,7 +1,7 @@
 /resources/public/js/compiled/**
 pom.xml
 *jar
-/lib/
+plugin/lib
 /classes/
 /out/
 /target/
