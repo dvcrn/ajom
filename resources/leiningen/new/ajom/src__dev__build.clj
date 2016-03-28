@@ -6,6 +6,8 @@
 
 (defn- plugin-setup []
   (-> (cljs/init-state)
+      (cljs/set-build-options
+          {:node-global-prefix "global.{{raw-name}}"})
       (cljs/find-resources-in-classpath)
       (umd/create-module
         {:activate '{{raw-name}}.core/activate
@@ -40,6 +42,7 @@
         {:before-load '{{raw-name}}.core/stop
          :after-load '{{raw-name}}.core/start
          :reload-with-state true
+         :console-support true
          :node-eval true}
         (fn [state modified]
           (-> state
