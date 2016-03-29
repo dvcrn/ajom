@@ -39,6 +39,10 @@ If you want to export a function to atom for use with atom commands, make sure t
 :bar 'your-thing.core/bar
 ```
 
+## Are you using ajom? List yourself here!
+
+- [proton](https://github.com/dvcrn/proton)
+
 ## License
 
 Copyright (c) 2015 David Mohl
