@@ -7,7 +7,7 @@
 (defn- plugin-setup []
   (-> (cljs/init-state)
       (cljs/set-build-options
-          {:node-global-prefix "global.{{raw-name}}"})
+          {:node-global-prefix "global.{{sanitized}}"})
       (cljs/find-resources-in-classpath)
       (umd/create-module
         {:activate '{{raw-name}}.core/activate
