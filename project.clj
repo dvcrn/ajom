@@ -1,4 +1,4 @@
-(defproject ajom/lein-template "0.3.1"
+(defproject ajom/lein-template "0.3.2"
   :description "atom plugins in clojurescript"
   :url "https://github.com/dvcrn/ajom"
   :license {:name "MIT"
